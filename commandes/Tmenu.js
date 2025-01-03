@@ -84,45 +84,64 @@ ${readmore}`;
 ┃ By Thomas Tech 2024 ┃
 ┗━━━━━━━━━━━━━━━━━┛`;
 
-    // Configuration des boutons
-    const buttons = [
-        { buttonId: `${prefixe}ping`, buttonText: { displayText: '🔄 PING' }, type: 1 },
-        { buttonId: `${prefixe}aide`, buttonText: { displayText: '❓ AIDE' }, type: 1 },
-        { buttonId: `${prefixe}owner`, buttonText: { displayText: '👑 OWNER' }, type: 1 }
-    ];
-
-    // Template du message avec boutons
-    const templateMessage = {
+    // Template du message avec externalAdReply
+    const messageTemplate = {
         image: { url: mybotpic() },
         caption: header + menuContent,
-        footer: "© 2024 Thomas Tech - Tous droits réservés",
-        buttons: buttons,
-        headerType: 4
+        contextInfo: {
+            externalAdReply: {
+                title: `${s.BOT} - Menu Principal`,
+                body: `Version ${s.VERSION || "LATEST"}`,
+                mediaType: 1,
+                previewType: 0,
+                renderLargerThumbnail: true,
+                thumbnailUrl: mybotpic(),
+                sourceUrl: 'https://github.com/yourusername/your-bot'  // Remplacez par votre URL
+            }
+        }
     };
 
-    // Gestion de l'envoi du message avec média et boutons
+    // Gestion de l'envoi du message
     try {
-        await zk.sendMessage(dest, templateMessage, { quoted: ms });
+        await zk.sendMessage(dest, messageTemplate, { quoted: ms });
     } catch (error) {
         console.error("⚠️ Erreur menu:", error);
-        // Si l'envoi avec boutons échoue, on revient à l'envoi classique
-        const lien = mybotpic();
+        // Fallback en cas d'erreur
         try {
+            const lien = mybotpic();
             if (lien.match(/\.(mp4|gif)$/i)) {
                 await zk.sendMessage(dest, {
                     video: { url: lien },
                     caption: header + menuContent,
-                    footer: "© 2024 Thomas Tech - Tous droits réservés",
+                    contextInfo: {
+                        externalAdReply: {
+                            title: `${s.BOT} - Menu Principal`,
+                            body: `Version ${s.VERSION || "LATEST"}`,
+                            mediaType: 1,
+                            previewType: 0,
+                            renderLargerThumbnail: true,
+                            thumbnailUrl: lien,
+                            sourceUrl: 'https://github.com/yourusername/your-bot'
+                        }
+                    },
                     gifPlayback: true
                 }, { quoted: ms });
-            } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
+            } else {
                 await zk.sendMessage(dest, {
                     image: { url: lien },
                     caption: header + menuContent,
-                    footer: "© 2024 Thomas Tech - Tous droits réservés"
+                    contextInfo: {
+                        externalAdReply: {
+                            title: `${s.BOT} - Menu Principal`,
+                            body: `Version ${s.VERSION || "LATEST"}`,
+                            mediaType: 1,
+                            previewType: 0,
+                            renderLargerThumbnail: true,
+                            thumbnailUrl: lien,
+                            sourceUrl: 'https://github.com/HACKING995/HACKING--MD9'
+                        }
+                    }
                 }, { quoted: ms });
-            } else {
-                await repondre(header + menuContent);
             }
         } catch (fallbackError) {
             await repondre("❌ Une erreur est survenue lors de l'affichage du menu.");
