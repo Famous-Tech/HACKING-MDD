@@ -92,7 +92,7 @@ ${readmore}`;
         caption: header + menuContent,
         contextInfo: {
             externalAdReply: {
-                title: `${s.BOT} - Menu Principal`,
+                title: `HACKING-MD MENU`,
                 body: `Version ${s.VERSION || "LATEST"}`,
                 mediaType: 1,
                 previewType: 0,
@@ -117,7 +117,7 @@ ${readmore}`;
                     caption: header + menuContent,
                     contextInfo: {
                         externalAdReply: {
-                            title: `${s.BOT} - Menu Principal`,
+                            title: `HACKING-MD MENU`,
                             body: `Version ${s.VERSION || "LATEST"}`,
                             mediaType: 1,
                             previewType: 0,
@@ -134,7 +134,7 @@ ${readmore}`;
                     caption: header + menuContent,
                     contextInfo: {
                         externalAdReply: {
-                            title: `${s.BOT} - Menu Principal`,
+                            title: `HACKING-MD MENU`,
                             body: `Version ${s.VERSION || "LATEST"}`,
                             mediaType: 1,
                             previewType: 0,
