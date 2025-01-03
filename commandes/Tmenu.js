@@ -47,7 +47,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 ╟➣ 🔧 *Système* : ${os.platform()}
 ╟➣ 🌐 *Site* : ${WEBSITE}
 ║
-╟❀ *DÉVELOPPEUR* : THOMAS
+╟❀ *DÉVELOPPEURS* : THOMAS & Famous-Tech 
 ║
 ╚════════════════════⊱
 
