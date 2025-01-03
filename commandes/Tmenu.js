@@ -8,7 +8,7 @@ const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
 
-zokou({ nomCom: "tmenu", categorie: "General" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions) => {
     const { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
     const { cm } = require(__dirname + "/../framework/zokou");
     const categories = {};
@@ -28,6 +28,7 @@ zokou({ nomCom: "tmenu", categorie: "General" }, async (dest, zk, commandeOption
     moment.tz.setDefault('Etc/GMT');
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
+    const WEBSITE = "https://hacking-md.vercel.app"
 
     // En-tête du bot avec style amélioré
     const header = `
@@ -44,6 +45,7 @@ zokou({ nomCom: "tmenu", categorie: "General" }, async (dest, zk, commandeOption
 ╟➣ 📊 *Commandes* : ${cm.length}
 ╟➣ 💻 *RAM* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 ╟➣ 🔧 *Système* : ${os.platform()}
+╟➣ 🌐 *Site* : ${WEBSITE}
 ║
 ╟❀ *DÉVELOPPEUR* : THOMAS
 ║
@@ -81,7 +83,7 @@ ${readmore}`;
 ┏━━━━━━━━━━━━━━━━━┓
 ┃  ⭐ HACKING-MD ⭐  ┃
 ┃    VERSION ${s.VERSION || "LATEST"}   ┃
-┃ By Thomas Tech 2024 ┃
+┃ By Thomas Tech & Famous-Tech ┃
 ┗━━━━━━━━━━━━━━━━━┛`;
 
     // Template du message avec externalAdReply
@@ -96,7 +98,7 @@ ${readmore}`;
                 previewType: 0,
                 renderLargerThumbnail: true,
                 thumbnailUrl: mybotpic(),
-                sourceUrl: 'https://github.com/yourusername/your-bot'  // Remplacez par votre URL
+                sourceUrl: 'https://hacking-md.vercel.app' 
             }
         }
     };
@@ -121,7 +123,7 @@ ${readmore}`;
                             previewType: 0,
                             renderLargerThumbnail: true,
                             thumbnailUrl: lien,
-                            sourceUrl: 'https://github.com/yourusername/your-bot'
+                            sourceUrl: 'https://hacking-md.vercel.app'
                         }
                     },
                     gifPlayback: true
@@ -138,7 +140,7 @@ ${readmore}`;
                             previewType: 0,
                             renderLargerThumbnail: true,
                             thumbnailUrl: lien,
-                            sourceUrl: 'https://github.com/HACKING995/HACKING--MD9'
+                            sourceUrl: 'https://hacking-md.vercel.app'
                         }
                     }
                 }, { quoted: ms });
